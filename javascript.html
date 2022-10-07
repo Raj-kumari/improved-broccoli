@@ -1,0 +1,64 @@
+<html>
+    
+
+<body>
+<script>  
+function validateform(){  
+var name=document.myform.name.value;  
+var password=document.myform.password.value;  
+  
+if (name==null || name==""){  
+  alert("Name can't be blank");  
+  return false;  
+}else if(password.length<6){  
+  alert("Password must be at least 6 characters long.");  
+  return false;
+}
+
+
+}
+ 
+function validate_email(field,alerttxt)
+{
+    with (field)
+    {
+        apos=value.indexOf("@");
+        dotpos=value.lastIndexOf(".");
+        if (apos<1||dotpos-apos<2){
+            alert(alerttxt);return false;
+        }
+        else {
+            return true;
+        }
+    }
+} 
+function validatePhoneNumber(input_str) {
+  var re = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
+
+  return re.test(input_str);
+}
+function validateForm(event) {
+  var phone = document.getElementById('myform_phone').value;
+  if (!validatePhoneNumber(phone)) {
+
+document.getElementById('phone_error').classList.remove('hidden');
+  } else {
+
+document.getElementById('phone_error').classList.add('hidden');
+    alert("validation success")
+  }
+  event.preventDefault();
+}
+</script> 
+<center> 
+<body style="background-color:red ;">  
+<form name="myform" method="post" action="" onsubmit="return validateform()" >  
+Name: <input type="text" name="name"><br/> </br> 
+Email: <input type="email" name="email"><br/></br>
+Password: <input type="password" name="password"><br/> </br>
+Number:<input type="number" name="PhoneNumber"><br/> </br>
+<center><input type="submit" value="register">  </center>
+</center>
+</form>
+</body>
+</body>
